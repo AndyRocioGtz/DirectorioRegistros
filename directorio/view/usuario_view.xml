@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<!--
+'author': "Andrea Magdalena Rocio Gutierrez"
+'website': "andyrociogtz@gmail.com"
+-->
+    <!--Datos a insetar en odoo_curso, datos de vistas, views , acctions-->
+    <data>
+
+            <record model="ir.ui.view" id="res_user_alias_form_view">
+            <field name="name">res.users.alias</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//h2//field[@name='login']" position="after">
+                    <label for="alias" class="oe_edit_only" string="Alias"/>
+                    <h2><field name="alias"/></h2>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Nivel de menu : no parent -->
+        <menuitem id="main_sesion_menu" name="Computer Equipment Control"/>
+            <!-- Se necesita un primer nivel en el menú de la izquierda antes de usar action= attribute -->
+        <menuitem id="sesion_menu" name="Inicio"
+                  parent="main_sesion_menu"/>
+            <!-- El siguiente menuitem debe aparecer despues de main_proposito_menu 1ero y despues de su acción sesion_platraforma_action-->
+        <menuitem id="sistema_menu" name="Usuarios" parent="sesion_menu"
+                  action="base.action_res_users"/>
+    </data>
+</openerp>

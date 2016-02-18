@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+'author': "Andrea Magdalena Rocio Gutierrez"
+'website': "andyrociogtz@gmail.com"
+-->
+
+<openerp>
+    <!--Datos a insetar en directorio, datos de vistas, views , acctions-->
+    <data>
+        <record model="ir.ui.view" id="registros_directorio_view"> <!--Tabla para almacenar las vistas -->
+        <!--Campos-->
+        	<field name="name">registros.directorio.view</field> 
+            <field name="model">registros.directorio</field> 
+            <field name="arch" type="xml">
+                <form string="Oficina Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="responsable_id"/>
+                            <field name="municipio_id"/>
+                            <field name="municipio_ids"/>
+                            <field name="domicilio_id"/>
+                            <field name="telefono_rp"/>
+                            <field name="tel_particular"/>
+                            <field name="correo"/>
+                        </group>                    
+                    </sheet>
+                </form>
+            </field>  
+        </record>
+
+        <!--Vista Tree Registros Publicos-->
+        <record model="ir.ui.view" id="equipos_tree_view">
+            <field name="name">registros.directorio.tree.view</field>
+            <field name="model">registros.directorio</field>
+            <field name="arch" type="xml">
+                <tree string="registros">
+                    <field name="name"/>
+                    <field name="responsable_id"/>
+                    <field name="municipio_id"/>
+                    <field name="municipio_ids"/>
+                    <field name="domicilio_id"/>
+                    <field name="telefono_rp"/>
+                    <field name="correo"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="registros_list_action">
+            <field name="name">Oficina de Registros Públicos</field>
+            <field name="res_model">registros.directorio</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="registro_top_menu" name="Registros Publicos"/>
+
+        <menuitem id="registro_menu" name="Registros"
+                  parent="registro_top_menu"/>
+
+        <menuitem id="oficina_menu" name="Oficinas"
+                  parent="registro_menu"
+                  action="registros_list_action"/>
+    </data>
+</openerp>

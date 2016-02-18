@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<!--
+'author': "Andrea Magdalena Rocio Gutierrez"
+'website': "andyrociogtz@gmail.com"
+-->
+    <!--Datos a insetar en odoo_curso, datos de vistas, views , acctions-->
+    <data>
+        <record model ="ir.ui.view" id="partido_judicial_view"> <!--Tabla para almacenar las vistas -->
+        <!--Campos-->
+            <field name="name">partido.judicial.view</field> 
+            <field name="model">partido.judicial</field> 
+            <field name="arch" type="xml">
+                <form string="PartidoJ Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="municipio_id"/>
+                        </group>           
+                    </sheet>
+                </form>
+            </field> 
+        </record>
+
+
+        <!--Vista Tree Domicilio-->
+        <record model="ir.ui.view" id="partidoj_tree_view">
+            <field name="name">partido.judicial.view</field>
+            <field name="model">partido.judicial</field>
+            <field name="arch" type="xml">
+                <tree string="Partido Judicial">
+                    <field name="name"/>
+                    <field name="municipio_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="partidoj_list_action">
+            <field name="name">Partido Judicial</field>
+            <field name="res_model">partido.judicial</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="partidoj_menu" name="Partido Judicial"
+                  parent="registro_menu"
+                  action="partidoj_list_action"/>
+    </data>
+</openerp>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<!--
+'author': "Andrea Magdalena Rocio Gutierrez"
+'website': "andyrociogtz@gmail.com"
+-->
+    <data noupdate="0">
+        <!--Definition group, linked with id to acces_list in csv-->
+        <record id="resgistrosp_grupo_admin" model="res.groups">
+            <field name="name">Grupo Administrador</field>
+            <field name="menu_access" eval="[(6, 0, [
+                    ref('directorio.oficina_menu'),
+                    ref('directorio.municipio_menu'),
+                    ref('directorio.domicilio_menu'),
+                    ref('directorio.partidoj_menu')
+                    ])]"/>
+
+        </record>
+        
+        <record id="resgistrosp_grupo_auxiliar" model="res.groups">
+            <field name="name">Grupo Auxiliar</field>
+            <field name="menu_access" eval="[(6, 0, [
+                    ref('directorio.oficina_menu'),
+                    ref('directorio.municipio_menu'),
+                    ref('directorio.partidoj_menu')
+                    ])]"/>
+        </record>
+        
+
+
+    </data>
+</openerp>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<!--
+'author': "Andrea Magdalena Rocio Gutierrez"
+'website': "andyrociogtz@gmail.com"
+-->
+    <!--Datos a insetar en odoo_curso, datos de vistas, views , acctions-->
+    <data>
+        <record model ="ir.ui.view" id="registros_domicilioo_view"> <!--Tabla para almacenar las vistas -->
+        <!--Campos-->
+            <field name="name">registros.domicilio.view</field> 
+            <field name="model">registros.domicilio</field> 
+            <field name="arch" type="xml">
+                <form string="Domicilio Form">
+                    <sheet>
+                        <group>
+                            <field name="municipio_id"/>
+                            <field name="name"/>
+                            <field name="colonia"/>
+                            <field name="cp"/>
+                        </group>           
+                    </sheet>
+                </form>
+            </field> 
+        </record>
+
+
+        <!--Vista Tree Domicilio-->
+        <record model="ir.ui.view" id="domicilio_tree_view">
+            <field name="name">domicilio.tree.view</field>
+            <field name="model">registros.domicilio</field>
+            <field name="arch" type="xml">
+                <tree string="Domicilio">
+                    <field name="municipio_id"/>
+                    <field name="name"/>
+                    <field name="colonia"/>
+                    <field name="cp"/>
+                </tree>
+            </field>
+        </record>
+
+
+
+        <!--Vista Tree Dispositivos Externos
+        <record model="ir.ui.view" id="vista_tree_depto">
+            <field name="name">vista.tree.depto</field>
+            <field name="model">equipment.dispositivosexternos</field>
+            <field name="arch" type="xml">
+                <tree string="Dispositivos Externos">
+                    <field name="name"/>
+                    <field name="descripcion"/>
+                </tree>
+            </field>
+        </record>-->
+
+
+
+        <record model="ir.actions.act_window" id="domicilio_list_action">
+            <field name="name">Domicilio</field>
+            <field name="res_model">registros.domicilio</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="domicilio_menu" name="Domicilio"
+                  parent="registro_menu"
+                  action="domicilio_list_action"/>
+    </data>
+</openerp>

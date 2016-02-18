@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<!--
+'author': "Andrea Magdalena Rocio Gutierrez"
+'website': "andyrociogtz@gmail.com"
+-->
+    <!--Datos a insetar en odoo_curso, datos de vistas, views , acctions-->
+    <data>
+        <!--VISTA Form-->
+        <record model ="ir.ui.view" id="municipio_view"> <!--Tabla para almacenar las vistas -->
+        <!--Campos-->
+        	<field name="name">municipio.view</field> 
+            <field name="model">municipio</field> 
+            <field name="arch" type="xml">
+        		<form string="Municipio Form">
+        			<sheet>
+        				<group>
+                            <field name="code"/>
+                            <field name="name"/>
+        				</group>
+ 		        	</sheet>
+        		</form>
+        	</field> 
+        </record>
+
+        <!--Vista Tree-->
+        <record model="ir.ui.view" id="municipio_tree_view">
+            <field name="name">municipio.view</field>
+            <field name="model">municipio</field>
+            <field name="arch" type="xml">
+                <tree string="Municipio">
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="municipio_list_action">
+            <field name="name">Municipio</field>
+            <field name="res_model">municipio</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="municipio_menu" name="Municipios"
+                  parent="registro_menu"
+                  action="municipio_list_action"/>
+    </data>
+
+</openerp>
